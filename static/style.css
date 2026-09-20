@@ -1,0 +1,846 @@
+/* =========================================================
+   AI CHATBOT - COMPLETE STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    /* Main pastel background */
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            #b9e5ff 0%,
+            #c7eaff 18%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 92% 15%,
+            #ffd4e8 0%,
+            #ffe2ef 20%,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 8% 90%,
+            #c5e9ff 0%,
+            #d5efff 18%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 92% 88%,
+            #ffd6e9 0%,
+            #ffe4ef 18%,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #d8f1ff,
+            #ffe8f3
+        );
+}
+
+
+/* =========================================================
+   2. DECORATIVE BACKGROUND ELEMENTS
+   ========================================================= */
+
+/* White heart on left */
+
+body::before {
+    content: "♡";
+
+    position: fixed;
+
+    left: 8%;
+    top: 25%;
+
+    font-size: 42px;
+
+    color: white;
+
+    font-weight: bold;
+
+    opacity: 0.9;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* Pink sparkle on right */
+
+body::after {
+    content: "✦";
+
+    position: fixed;
+
+    right: 8%;
+    top: 28%;
+
+    font-size: 45px;
+
+    color: #f39ac2;
+
+    opacity: 0.85;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   3. MAIN CHATBOT CONTAINER
+   ========================================================= */
+
+.chat-container {
+     width: min(870px, 90vw);
+    height: min(780px, 88vh);
+    min-height: 500px;
+
+
+    background: rgba(255, 255, 255, 0.90);
+
+    border: 2px solid rgba(255, 255, 255, 0.95);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(150, 120, 180, 0.25),
+        0 5px 20px rgba(120, 160, 220, 0.15);
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+
+    z-index: 2;
+
+    flex-shrink: 1;
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+.chat-header {
+    height: 150px;
+
+    min-height: 150px;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe8f2,
+            #fff0f7
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-bottom: 1px solid rgba(180, 170, 200, 0.15);
+
+    padding: 18px 25px;
+}
+
+
+/* Header content */
+
+.chat-header-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   5. BOT FACE / ROBOT IMAGE
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   This does NOT replace your bot image.
+
+   It styles the <img> you already have in your HTML.
+*/
+
+.chat-header img {
+    width: 90px;
+
+    height: 90px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    display: block;
+
+    border-radius: 50%;
+}
+
+
+/*
+   If your bot face is inside a specific
+   class called .bot-icon, this also works.
+*/
+
+.chat-header .bot-icon {
+    width: 90px;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+
+/* If the bot image is inside .bot-icon */
+
+.chat-header .bot-icon img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   6. HEADER TITLE
+   ========================================================= */
+
+.chat-header h1 {
+    color: #4169c9;
+
+    font-size: 42px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    line-height: 1.1;
+
+    margin-bottom: 8px;
+}
+
+
+/* Subtitle */
+
+.chat-header p {
+    color: #6084d3;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   7. CHAT AREA
+   ========================================================= */
+
+
+
+/* Chat scrollbar */
+
+.chat-box {
+    flex: 1 1 auto;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    scroll-behavior: smooth;
+}
+/* Bot message */
+
+.bot-message {
+    align-self: flex-start;
+}
+
+
+/* User message */
+
+.user-message {
+    align-self: flex-end;
+
+    flex-direction: row-reverse;
+}
+
+
+/* =========================================================
+   9. BOT FACE IN CHAT MESSAGE
+   ========================================================= */
+
+.message img {
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    display: block;
+}
+
+
+/* =========================================================
+   10. MESSAGE CONTENT
+   ========================================================= */
+
+.message-content {
+    padding: 15px 21px;
+
+    border-radius: 18px;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    color: #27345c;
+
+    word-wrap: break-word;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   11. BOT MESSAGE BUBBLE
+   ========================================================= */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    max-width: 80%;
+
+    flex-shrink: 0;
+}
+.bot-message .message-content {
+    background:
+        linear-gradient(
+            135deg,
+            #e7f1ff,
+            #edf4ff
+        );
+
+    border-top-left-radius: 7px;
+
+    color: #27345c;
+
+    box-shadow:
+        0 3px 10px rgba(120, 150, 200, 0.08);
+}
+
+
+/* =========================================================
+   12. USER MESSAGE BUBBLE
+   ========================================================= */
+
+.user-message .message-content {
+    background:
+        linear-gradient(
+            135deg,
+            #f6a7c7,
+            #f49ab9
+        );
+
+    color: white;
+
+    border-top-right-radius: 7px;
+
+    box-shadow:
+        0 3px 10px rgba(240, 140, 175, 0.12);
+}
+
+
+/* =========================================================
+   13. INPUT AREA
+   ========================================================= */
+
+.input-area {
+    height: 105px;
+
+    min-height: 105px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 28px 25px;
+}
+
+
+/* =========================================================
+   14. MESSAGE INPUT
+   ========================================================= */
+
+.input-area input {
+    flex: 1;
+
+    height: 70px;
+
+    border: 1.5px solid #d1d1df;
+
+    border-radius: 40px;
+
+    outline: none;
+
+    padding: 0 28px;
+
+    font-size: 20px;
+
+    font-family:
+        "Poppins",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #3d4c72;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.input-area input::placeholder {
+    color: #8290b1;
+
+    opacity: 1;
+}
+
+
+/* Input focus */
+
+.input-area input:focus {
+    border-color: #aab9ed;
+
+    box-shadow:
+        0 0 0 3px rgba(
+            169,
+            185,
+            237,
+            0.15
+        );
+}
+
+
+/* =========================================================
+   15. SEND BUTTON
+   ========================================================= */
+
+.input-area button {
+    width: 98px;
+
+    height: 70px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5a3c4,
+            #f18eae
+        );
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 6px 15px
+        rgba(
+            242,
+            143,
+            175,
+            0.25
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Button hover */
+
+.input-area button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            242,
+            143,
+            175,
+            0.35
+        );
+}
+
+
+/* Button click */
+
+.input-area button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   16. OPTIONAL SEND ICON
+   ========================================================= */
+
+/*
+   If your button contains an SVG/icon,
+   keep it white and properly sized.
+*/
+
+.input-area button svg {
+    width: 30px;
+
+    height: 30px;
+
+    fill: currentColor;
+
+    stroke: currentColor;
+}
+
+
+/* =========================================================
+   17. RESPONSIVE - LAPTOP / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .chat-container {
+        width: 90vw;
+
+        height: min(760px, 88vh);
+    }
+
+    .chat-header h1 {
+        font-size: 38px;
+    }
+
+    .chat-header p {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   18. RESPONSIVE - SMALL LAPTOP
+   ========================================================= */
+
+@media (max-height: 700px) {
+
+    .chat-container {
+        height: 94vh;
+
+        min-height: 450px;
+    }
+
+    .chat-header {
+        height: 120px;
+
+        min-height: 120px;
+
+        padding: 12px 20px;
+    }
+
+    .chat-header img,
+    .chat-header .bot-icon {
+        width: 70px;
+
+        height: 70px;
+    }
+
+    .chat-header h1 {
+        font-size: 32px;
+    }
+
+    .chat-header p {
+        font-size: 18px;
+    }
+
+    .chat-box {
+        padding: 20px;
+    }
+
+    .message-content {
+        font-size: 18px;
+    }
+
+    .input-area {
+        height: 90px;
+
+        min-height: 90px;
+
+        padding: 12px 20px 18px;
+    }
+
+    .input-area input {
+        height: 60px;
+
+        font-size: 18px;
+    }
+
+    .input-area button {
+        width: 80px;
+
+        height: 60px;
+    }
+}
+
+
+/* =========================================================
+   19. RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .chat-container {
+        width: 100%;
+
+        height: 95vh;
+
+        min-height: 450px;
+
+        border-radius: 22px;
+    }
+
+    .chat-header {
+        height: 115px;
+
+        min-height: 115px;
+    }
+
+    .chat-header-content {
+        gap: 12px;
+    }
+
+    .chat-header img,
+    .chat-header .bot-icon {
+        width: 60px;
+
+        height: 60px;
+    }
+
+    .chat-header h1 {
+        font-size: 28px;
+    }
+
+    .chat-header p {
+        font-size: 16px;
+    }
+
+    .chat-box {
+        margin: 0 8px;
+
+        padding: 18px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .message img {
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .message-content {
+        font-size: 16px;
+
+        padding: 12px 16px;
+    }
+
+    .input-area {
+        padding: 12px;
+
+        gap: 8px;
+    }
+
+    .input-area input {
+        height: 58px;
+
+        font-size: 16px;
+
+        padding: 0 18px;
+    }
+
+    .input-area button {
+        width: 65px;
+
+        height: 58px;
+
+        font-size: 25px;
+    }
+}
+
+
+/* =========================================================
+   20. RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .chat-container {
+        height: 96vh;
+
+        border-radius: 18px;
+    }
+
+    .chat-header {
+        height: 100px;
+
+        min-height: 100px;
+
+        padding: 10px;
+    }
+
+    .chat-header img,
+    .chat-header .bot-icon {
+        width: 50px;
+
+        height: 50px;
+    }
+
+    .chat-header-content {
+        gap: 9px;
+    }
+
+    .chat-header h1 {
+        font-size: 23px;
+
+        margin-bottom: 4px;
+    }
+
+    .chat-header p {
+        font-size: 14px;
+    }
+
+    .chat-box {
+        padding: 12px;
+
+        margin: 0 6px;
+    }
+
+    .message-content {
+        font-size: 15px;
+
+        padding: 10px 13px;
+    }
+
+    .input-area {
+        height: 78px;
+
+        min-height: 78px;
+
+        padding: 8px;
+    }
+
+    .input-area input {
+        height: 52px;
+
+        font-size: 14px;
+
+        padding: 0 15px;
+    }
+
+    .input-area button {
+        width: 58px;
+
+        height: 52px;
+
+        font-size: 22px;
+    }
+}

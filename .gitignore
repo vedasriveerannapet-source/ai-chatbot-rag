@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database
+chat_history.db
+
+# Uploaded documents
+uploads/
+
+# Flask
+instance/
+
+# IDE
+.vscode/
